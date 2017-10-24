@@ -4,10 +4,14 @@ var cap = false;
 var ws = false;
 var wordlist = [];
 
-$.get("/word_list", function (data) {
+$.get("/public/words_danish.txt", function (data) {
     wordlist = data.split("\n");
     generatePassword();
 });
+
+function capitalize(str) {
+    return str.charAt(0).toUpperCase() + str.substr(1);
+}
 
 function getRandomNumbers(no) {
     if (window.crypto && window.crypto.getRandomValues){
@@ -22,7 +26,6 @@ function getRandomNumbers(no) {
         return arr;
     }
 }
-
 
 function generatePassword() {
     var i = 0;
@@ -45,9 +48,22 @@ function generatePassword() {
 
 }
 
-function capitalize(str) {
-    return str.charAt(0).toUpperCase() + str.substr(1);
-}
+$("select").change(function () {
+    var langs = $(this).val();
+    var i = 0, t = langs.length;
+    console.log(langs);
+    wordlist = [];
+    langs.forEach(function (lang) {
+        var file = "words_" + lang + ".txt";
+        $.get("/public/" + file, function (data) {
+            wordlist = wordlist.concat(data.split("\n"));
+            i++;
+            if (i === t)
+                generatePassword();
+        });
+    });
+});
+
 $(document).on('input', 'input', function () {
     $("button").click();
 });

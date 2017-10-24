@@ -5,8 +5,7 @@
     <title>Passphraser</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" defer="defer"></script>
-    <script src="main.js" defer="defer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
 <div class="container">
@@ -18,7 +17,7 @@
         <input class="u-full-width" type="text" id="sep" minlength="1" value="1 2 3 4 5 6 7 8 9 0 / % _ - @ $ & ? ! 42 * + # =" autocomplete="off" placeholder="Separators">
     </div>
     <div class="row">
-        <div class="nine columns">
+        <div class="eight columns">
             <div class="three-cols" title="Randomly capitalize words">
                 <label>Capitalize words</label>
                 <input class="u-full-width" type="checkbox" id="cap">
@@ -32,11 +31,19 @@
                 <input class="u-full-width" type="number" min="2" max="100" value="5" id="words">
             </div>
         </div>
-        <div class="three columns">
+
+        <div class="two columns">
+            <label>Language</label>
+            <select class="u-full-width" multiple="multiple">
+                <option value="english" selected="selected">English</option>
+                <option value="danish">Danish</option>
+            </select>
+        </div>
+        <div class="two columns">
             <button class="u-full-width" style="margin-top: 29px;">Generate</button>
         </div>
     </div>
 </div>
-
+<script src="main.js"></script>
 </body>
 </html>

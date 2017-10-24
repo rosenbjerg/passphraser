@@ -50,8 +50,9 @@ label {
     -ms-user-select: none;
     user-select: none;
 }
-input[type=text], input[type=number], input[type=text]:active, input[type=number]:active {
+input[type=text], input[type=number], input[type=text]:active, input[type=number]:active, select {
     background-color: #757575;
+    color: #dcdcdc;
 }
 
 .three-cols {
@@ -59,3 +60,6 @@ input[type=text], input[type=number], input[type=text]:active, input[type=number
     width: 32%;
 }
 
+.multiselect-container>li>a>label {
+    padding: 4px 20px 3px 20px;
+}
