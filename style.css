@@ -1,0 +1,61 @@
+html, body {
+    background-color: #424242;
+}
+.title {
+    text-align: center;
+    font-size: 4rem;
+    background-color: transparent;
+    color: #dcdcdc;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#pw {
+    text-align: center;
+    font-size: 2rem;
+    background-color: #9E9E9E;
+    border-radius: 6px;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    -moz-binding: url('assets/xml/ellipsis.xml#ellipsis');
+    cursor: pointer;
+    transition: background-color 750ms ease;
+}
+#pw:active {
+    background-color: #E0E0E0;
+    transition: background-color 250ms;
+}
+
+@media only screen and (min-width: 800px)  {
+    #pw {
+        font-size: 2.5rem;
+    }
+}
+.container{
+    margin-top: 5%;
+}
+
+label, button, input, button, button:hover, button:focus, button:active {
+    color: #dcdcdc;
+    text-align: center;
+}
+label {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+input[type=text], input[type=number], input[type=text]:active, input[type=number]:active {
+    background-color: #757575;
+}
+
+.three-cols {
+    display: inline-block;
+    width: 32%;
+}
+

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Passphraser</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" defer="defer"></script>
+    <script src="main.js" defer="defer"></script>
+</head>
+<body>
+<div class="container">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <pre class="title">PassPhraser</pre>
+    <pre class="u-full-width" id="pw"></pre>
+    <div class="row">
+        <label>Separators</label>
+        <input class="u-full-width" type="text" id="sep" minlength="1" value="1 2 3 4 5 6 7 8 9 0 / % _ - @ $ & ? ! 42 * + # =" autocomplete="off" placeholder="Separators">
+    </div>
+    <div class="row">
+        <div class="nine columns">
+            <div class="three-cols" title="Randomly capitalize words">
+                <label>Capitalize words</label>
+                <input class="u-full-width" type="checkbox" id="cap">
+            </div>
+            <div class="three-cols" title="Only use white-space as separator">
+                <label>White-space separator</label>
+                <input class="u-full-width" type="checkbox" id="whitespace">
+            </div>
+            <div class="three-cols" title="Number of words in passphrase">
+                <label>Word count</label>
+                <input class="u-full-width" type="number" min="2" max="100" value="5" id="words">
+            </div>
+        </div>
+        <div class="three columns">
+            <button class="u-full-width" style="margin-top: 29px;">Generate</button>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
