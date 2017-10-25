@@ -1,10 +1,10 @@
 var splitters = ['1','2','3','4','5','6','7','8','9','0','/','%','_','-','@','$','&','?','!','42','*','+','#', '='];
-var words = 5;
+var words = 6;
 var cap = false;
-var ws = false;
+var ws = true;
 var wordlist = [];
 
-$.get("/public/words_danish.txt", function (data) {
+$.get("/words_english.txt", function (data) {
     wordlist = data.split("\n");
     generatePassword();
 });
@@ -55,7 +55,7 @@ $("select").change(function () {
     wordlist = [];
     langs.forEach(function (lang) {
         var file = "words_" + lang + ".txt";
-        $.get("/public/" + file, function (data) {
+        $.get("/" + file, function (data) {
             wordlist = wordlist.concat(data.split("\n"));
             i++;
             if (i === t)
@@ -67,18 +67,29 @@ $("select").change(function () {
 $(document).on('input', 'input', function () {
     $("button").click();
 });
+
 $("input[type=checkbox]").change(function () {
     $("button").click();
 });
+
+$("#whitespace").change(function () {
+    $("#sep").prop("disabled", !$(this).is(":checked"));
+});
+
 $("button").click(function () {
     words = parseInt($("#words").val());
     cap = $("#cap").is(":checked");
-    ws = $("#whitespace").is(":checked");
+    ws = !$("#whitespace").is(":checked");
     splitters = $("#sep").val().split(' ');
     generatePassword();
 });
 
 $("#pw").click(function () {
+    var copy = $("#copied");
+    copy.toggleClass("show");
+    setTimeout(function () {
+        copy.toggleClass("show");
+    }, 25);
     var $temp = $("<input>");
     $("body").append($temp);
     $temp.val($(this).text()).select();

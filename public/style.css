@@ -25,10 +25,26 @@ html, body {
     -moz-binding: url('assets/xml/ellipsis.xml#ellipsis');
     cursor: pointer;
     transition: background-color 750ms ease;
+    margin-bottom: 2px;
 }
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+}
+
 #pw:active {
     background-color: #E0E0E0;
-    transition: background-color 250ms;
+    transition: background-color 50ms;
 }
 
 @media only screen and (min-width: 800px)  {
@@ -50,8 +66,8 @@ label {
     -ms-user-select: none;
     user-select: none;
 }
-input[type=text], input[type=number], input[type=text]:active, input[type=number]:active, select {
-    background-color: #757575;
+input[type=text], input[type=number], input[type=text]:active, input[type=number]:active, select, #sep {
+    background-color: #424242;
     color: #dcdcdc;
 }
 
@@ -62,4 +78,22 @@ input[type=text], input[type=number], input[type=text]:active, input[type=number
 
 .multiselect-container>li>a>label {
     padding: 4px 20px 3px 20px;
+}
+
+#sep:disabled {
+    color: #757575;
+}
+
+#copied {
+    color: #dcdcdc;
+    text-align: center;
+    display: inline-block;
+    margin-bottom:20px;
+    opacity: 0;
+    transition: opacity 800ms ease;
+}
+
+#copied.show {
+    opacity: 1;
+    transition: opacity 10ms;
 }
