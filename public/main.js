@@ -4,7 +4,7 @@ var cap = false;
 var ws = true;
 var wordlist = [];
 
-$.get("/words_english.txt", function (data) {
+$.get("words_english.txt", function (data) {
     wordlist = data.split("\n");
     generatePassword();
 });
@@ -44,7 +44,7 @@ function generatePassword() {
         else
             str += " ";
     }
-    $("#pw").text(str);
+    $("#pw").html(str);
 
 }
 
