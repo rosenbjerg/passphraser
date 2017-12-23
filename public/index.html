@@ -7,43 +7,45 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://libs.rosenbjerg.dk/eventtarget-on/latest/eventtarget-on.min.js"></script>
+    <script src="https://libs.rosenbjerg.dk/jsdatabindings/latest/JsDataBindings.min.js"></script>
 </head>
 <body>
 <a href="https://github.com/rosenbjerg/passphraser" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png"></a>
-<div class="container">
+<div class="container" id="container">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <pre class="title">PassPhraser</pre>
-    <pre class="u-full-width" id="pw"></pre>
+    <pre class="u-full-width" data-bindings="phrase, copyPhrase -> onclick" id="pw"></pre>
     <span id="copied" class="u-full-width">Copied!</span>
     <div class="row">
         <label>Separators</label>
-        <input class="u-full-width" type="text" id="sep" disabled="true" minlength="1" value="1 2 3 4 5 6 7 8 9 0 / % _ - @ $ & ? ! 42 * + # =" autocomplete="off" placeholder="Separators">
+        <input class="u-full-width" data-bindings="separators" type="text" id="sep" disabled="true" minlength="1" value="1 2 3 4 5 6 7 8 9 0 / % _ - @ $ & ? ! 42 * + # =" autocomplete="off" placeholder="Separators">
     </div>
     <div class="row">
         <div class="seven columns">
             <div class="three-cols" title="Randomly capitalize words">
                 <label>Capitalize words</label>
-                <input class="u-full-width" type="checkbox" id="cap">
+                <input class="u-full-width" data-bindings="capitalize" type="checkbox" id="cap">
             </div>
             <div class="three-cols" title="Only use white-space as separator">
                 <label>Custom separator</label>
-                <input class="u-full-width" type="checkbox" id="whitespace">
+                <input class="u-full-width" data-bindings="whitespace" type="checkbox">
             </div>
             <div class="three-cols" title="Number of words in passphrase">
                 <label>Word count</label>
-                <input class="u-full-width" type="number" min="2" max="100" step="1" value="6" id="words">
+                <input class="u-full-width" data-bindings="words" type="number" min="2" max="100" step="1" value="6" id="words">
             </div>
         </div>
 
         <div class="three columns">
             <label>Language</label>
-            <select class="u-full-width" multiple="multiple">
+            <select class="u-full-width" data-bindings="languages" multiple="multiple">
                 <option value="english" selected="selected">English</option>
                 <option value="danish">Danish</option>
             </select>
         </div>
         <div class="two columns">
-            <button class="u-full-width" style="margin-top: 29px;">Generate</button>
+            <button class="u-full-width" style="margin-top: 29px;" data-bindings="generateFunc -> onclick" id="generate">Generate</button>
         </div>
     </div>
 </div>
